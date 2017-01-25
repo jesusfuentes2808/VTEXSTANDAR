@@ -13,6 +13,7 @@ LideratisLibrary.isset = function(variable_name) {
         return false;
     }
 }
+/*********************************COMENTARIO GUSTAVO LDLibrary***************************************/
 LideratisLibrary.PageView = function(array) {
     var pageId = array["pageId"];
     var onsiteSearchTerm = (LideratisLibrary.isset(array["onsiteSearchTerm"]) ? array["onsiteSearchTerm"] : '');
