@@ -1,8 +1,8 @@
-console.log("Lideratis Library");
 /*********************************LIBRERIA**LIDERATIS.COM***************************************/
 window.LideratisLibrary = new Object();
 window.LideratisdigitalData;
 window.LideratisdigitalDataArray = [];
+window.LideratisdigitalDataProductViewArray = [];
 window.LideratisdigitalDataSAP9Array = [];
 LideratisLibrary.isset = function(variable_name) {
     try {
@@ -68,6 +68,27 @@ LideratisLibrary.ProductView = function(array) {
     } else {
         return "-1";
     }
+}
+LideratisLibrary.initProductView_content = function() {
+    LideratisdigitalDataProductViewArray = new Array();
+}
+LideratisLibrary.ProductView_content = function(array) {
+    LideratisdigitalDataProductViewArray[array['index']] = {
+        'productInfo': {
+            'productID': (LideratisLibrary.isset(array['productID']) ? array['productID'] : ''),
+            'productName': (LideratisLibrary.isset(array['productName']) ? array['productName'] : '')
+        },
+        'category': {
+            'primaryCategory': (LideratisLibrary.isset(array["primaryCategory"]) ? array["primaryCategory"] : ''),
+            'virtualCategory': (LideratisLibrary.isset(array["virtualCategory"]) ? array["virtualCategory"] : '')
+        },
+        'attributes': {
+            'exploreAttributes': (LideratisLibrary.isset(array["exploreAttributes"]) ? array["exploreAttributes"] : '')
+        }
+    }
+}
+LideratisLibrary.ProductViewIterator = function(array) {
+    return LideratisdigitalDataProductViewArray;
 }
 LideratisLibrary.ShopAction5_BtnClick = function(array) {
     try {
@@ -144,7 +165,7 @@ LideratisLibrary.initShopAction9Content = function() {
 LideratisLibrary.ShopAction9 = function(array) {
     return LideratisdigitalDataSAP9Array;
 }
-LideratisLibrary.OrdenTag = function(array) {
+LideratisLibrary.Order = function(array) {
     var transactionID = array["transactionID"];
     var basePrice = array["basePrice"];
     var shipping = array["shipping"];
@@ -183,7 +204,7 @@ LideratisLibrary.OrdenTag = function(array) {
         return "-1";
     }
 }
-LideratisLibrary.RegistrationTag = function(array) {
+LideratisLibrary.Registration = function(array) {
     var profileID = array["profileID"];
     var profileEmail = (LideratisLibrary.isset(array["profileEmail"]) ? array["profileEmail"] : '');
     var exploreAttributes = (LideratisLibrary.isset(array["exploreAttributes"]) ? array["exploreAttributes"] : '');
@@ -214,7 +235,7 @@ LideratisLibrary.RegistrationTag = function(array) {
         return "-1";
     }
 }
-LideratisLibrary.ElementTag = function(array) {
+LideratisLibrary.Element = function(array) {
     var componentID = array["componentID"];
     var primaryCategory = (LideratisLibrary.isset(array["primaryCategory"]) ? array["primaryCategory"] : '');
     var exploreAttributes = (LideratisLibrary.isset(array["exploreAttributes"]) ? array["exploreAttributes"] : '');
@@ -237,7 +258,7 @@ LideratisLibrary.ElementTag = function(array) {
         return "-1";
     }
 }
-LideratisLibrary.ConversionTag = function(array) {
+LideratisLibrary.ConversionEvent = function(array) {
         var eventName = array["eventName"];
         var eventAction = array["eventAction"];
         var eventPoints = (LideratisLibrary.isset(array["eventPoints"]) ? array["eventPoints"] : '');
