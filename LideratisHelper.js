@@ -1,4 +1,3 @@
-$(document).ready(function() {
     window.LideratisHelper = new Object();
     /****************************************************************************************************************/
     //Esta función se encarga de limpiar las comillas (simples, dobles).
@@ -198,5 +197,3 @@ $(document).ready(function() {
                 return "-1"
         }
     }
-
-});
