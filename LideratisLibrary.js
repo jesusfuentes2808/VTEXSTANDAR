@@ -4,6 +4,11 @@ window.LideratisdigitalData;
 window.LideratisdigitalDataArray = [];
 window.LideratisdigitalDataProductViewArray = [];
 window.LideratisdigitalDataSAP9Array = [];
+
+/****************************************************************************************************************/
+//La funcion "LideratisLibrary.isset", comprueba si una variable se encuentra definida.
+//@variable_name  : Variable
+/****************************************************************************************************************/
 LideratisLibrary.isset = function(variable_name) {
     try {
         if (typeof(variable_name) !== 'undefined')
@@ -13,6 +18,11 @@ LideratisLibrary.isset = function(variable_name) {
         return false;
     }
 }
+
+/****************************************************************************************************************/
+//La funcion "LideratisLibrary.PageView", se encarga de retornar un Json con los Datos de un Tag PageView.
+//@array  : Lista de Datos que asocia valores con claves
+/****************************************************************************************************************/
 LideratisLibrary.PageView = function(array) {
     var pageId = array["pageId"];
     var onsiteSearchTerm = (LideratisLibrary.isset(array["onsiteSearchTerm"]) ? array["onsiteSearchTerm"] : '');
@@ -42,6 +52,11 @@ LideratisLibrary.PageView = function(array) {
         return "-1";
     }
 }
+
+/****************************************************************************************************************/
+//La funcion "LideratisLibrary.ProductView", se encarga de retornar un Json con los Datos de un Tag ProductView.
+//@array  : Lista de Datos que asocia valores con claves
+/****************************************************************************************************************/
 LideratisLibrary.ProductView = function(array) {
     var productID = array["productID"];
     var productName = array["productName"];
@@ -69,9 +84,18 @@ LideratisLibrary.ProductView = function(array) {
         return "-1";
     }
 }
+
+/************************************************************************************************************************************/
+//La funcion "LideratisLibrary.initProductView_content", se encarga de inicializar el Arreglo "LideratisdigitalDataProductViewArray".
+/************************************************************************************************************************************/
 LideratisLibrary.initProductView_content = function() {
     LideratisdigitalDataProductViewArray = new Array();
 }
+
+/**************************************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ProductView_content", se encarga almacenar varios arreglos de datos con su indice en especifico dentro del Array "LideratisdigitalDataProductViewArray".
+//@array  : Lista de Datos que asocia valores con claves
+/**************************************************************************************************************************************************************************************/
 LideratisLibrary.ProductView_content = function(array) {
     LideratisdigitalDataProductViewArray[array['index']] = {
         'productInfo': {
@@ -87,9 +111,19 @@ LideratisLibrary.ProductView_content = function(array) {
         }
     }
 }
+
+/************************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ProductViewIterator", nos retorna  un Json con los datos de Tag un ProductView , que fueron obtenidos de la function "ProductView_content"
+//@array  : Lista de Datos que asocia valores con claves
+/************************************************************************************************************************************************************************/
 LideratisLibrary.ProductViewIterator = function(array) {
     return LideratisdigitalDataProductViewArray;
 }
+
+/******************************************************************************************************************************************************/
+//La function "LideratisLibrary.ShopAction5_BtnClick ", se encarga de retornar un Json con los datos requeridos para ejecutar un Tag de ShopAction5.
+//@array  : Lista de Datos que asocia valores con claves
+/******************************************************************************************************************************************************/
 LideratisLibrary.ShopAction5_BtnClick = function(array) {
     try {
         LideratisdigitalData = {
@@ -117,9 +151,18 @@ LideratisLibrary.ShopAction5_BtnClick = function(array) {
         return "-1";
     }
 }
+
+/***********************************************************************************************************************************/
+//La funcion "LideratisLibrary.initShopAction5Content", se encarga de inicializar el Arreglo "LideratisdigitalDataProductViewArray".
+/***********************************************************************************************************************************/
 LideratisLibrary.initShopAction5Content = function() {
     LideratisdigitalDataArray = new Array();
 }
+
+/**************************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ShopAction5Content", se encarga almacenar varios arreglos de datos con su indice en especifico dentro del Array "LideratisdigitalDataArray".
+//@array  : Lista de Datos que asocia valores con claves
+/**************************************************************************************************************************************************************************/
 LideratisLibrary.ShopAction5Content = function(array) {
     LideratisdigitalDataArray[array['index']] = {
         'productInfo': {
@@ -138,9 +181,26 @@ LideratisLibrary.ShopAction5Content = function(array) {
         }
     };
 }
+
+/***************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ShopAction5", nos retorna  un Json con los datos de Tag un ShopAction5 , que fueron obtenidos de la function "ShopAction5Content"
+//@array  : Lista de Datos que asocia valores con claves
+/***************************************************************************************************************************************************************/
 LideratisLibrary.ShopAction5 = function(array) {
     return LideratisdigitalDataArray;
 }
+
+/******************************************************************************************************************************/
+//La funcion "LideratisLibrary.initShopAction9Content", se encarga de inicializar el Arreglo "LideratisdigitalDataSAP9Array".
+/******************************************************************************************************************************/
+LideratisLibrary.initShopAction9Content = function() {
+    LideratisdigitalDataSAP9Array = new Array();
+}
+
+/*****************************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ShopAction9Content", se encarga almacenar varios arreglos de datos con su indice en especifico dentro del Array "LideratisdigitalDataSAP9Array".
+//@array  : Lista de Datos que asocia valores con claves
+/*****************************************************************************************************************************************************************************/
 LideratisLibrary.ShopAction9Content = function(array) {
     LideratisdigitalDataSAP9Array[array['index']] = {
         'productInfo': {
@@ -159,12 +219,19 @@ LideratisLibrary.ShopAction9Content = function(array) {
         }
     };
 }
-LideratisLibrary.initShopAction9Content = function() {
-    LideratisdigitalDataSAP9Array = new Array();
-}
+
+/***************************************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ShopAction9", nos retorna  un Json con los datos de Tag un ShopAction9 , que fueron obtenidos de la function "ShopAction9Content"
+//@array  : Lista de Datos que asocia valores con claves
+/***************************************************************************************************************************************************************/
 LideratisLibrary.ShopAction9 = function(array) {
     return LideratisdigitalDataSAP9Array;
 }
+
+/*******************************************************************************************************************/
+//La funcion "LideratisLibrary.Order", nos retorna un Json con Datos que son nesesarios para ejecutar el Tag Order.
+//@array  : Lista de Datos que asocia valores con claves
+/*******************************************************************************************************************/
 LideratisLibrary.Order = function(array) {
     var transactionID = array["transactionID"];
     var basePrice = array["basePrice"];
@@ -204,6 +271,11 @@ LideratisLibrary.Order = function(array) {
         return "-1";
     }
 }
+
+/************************************************************************************************************************************/
+//La funcion "LideratisLibrary.Registration", nos retorna un Json con los datos que son necesarios para ejecutar un Tag de Registro.
+//@array  : Lista de Datos que asocia valores con claves
+/************************************************************************************************************************************/
 LideratisLibrary.Registration = function(array) {
     var profileID = array["profileID"];
     var profileEmail = (LideratisLibrary.isset(array["profileEmail"]) ? array["profileEmail"] : '');
@@ -235,6 +307,11 @@ LideratisLibrary.Registration = function(array) {
         return "-1";
     }
 }
+
+/******************************************************************************************************************************/
+//La funcion "LideratisLibrary.Element", nos retorna un Json con los datos que son necesarios para ejecutar un Tag de Element.
+//@array  : Lista de Datos que asocia valores con claves
+/******************************************************************************************************************************/
 LideratisLibrary.Element = function(array) {
     var componentID = array["componentID"];
     var primaryCategory = (LideratisLibrary.isset(array["primaryCategory"]) ? array["primaryCategory"] : '');
@@ -258,33 +335,38 @@ LideratisLibrary.Element = function(array) {
         return "-1";
     }
 }
+
+/*********************************************************************************************************************************************/
+//La funcion "LideratisLibrary.ConversionEvent", nos retorna un Json con los datos que son necesarios para ejecutar un Tag de ConversionEvent.
+//@array  : Lista de Datos que asocia valores con claves
+/*********************************************************************************************************************************************/
 LideratisLibrary.ConversionEvent = function(array) {
-        var eventName = array["eventName"];
-        var eventAction = array["eventAction"];
-        var eventPoints = (LideratisLibrary.isset(array["eventPoints"]) ? array["eventPoints"] : '');
-        var primaryCategory = (LideratisLibrary.isset(array["primaryCategory"]) ? array["primaryCategory"] : '');
-        var exploreAttributes = (LideratisLibrary.isset(array["exploreAttributes"]) ? array["exploreAttributes"] : '');
-        var extraFields = (LideratisLibrary.isset(array["extraFields"]) ? array["extraFields"] : '');
-        if (LideratisLibrary.isset(eventName) && LideratisLibrary.isset(eventAction)) {
-            LideratisdigitalData = {
-                'event': [{
-                    'eventInfo': {
-                        'eventName': eventName,
-                        'eventAction': eventAction,
-                        'eventPoints': eventPoints
-                    },
-                    'category': {
-                        'primaryCategory': primaryCategory
-                    },
-                    'attributes': {
-                        'exploreAttributes': exploreAttributes,
-                        'extraFields': extraFields
-                    }
-                }]
-            };
-            return LideratisdigitalData;
-        } else {
-            return "-1";
-        }
+    var eventName = array["eventName"];
+    var eventAction = array["eventAction"];
+    var eventPoints = (LideratisLibrary.isset(array["eventPoints"]) ? array["eventPoints"] : '');
+    var primaryCategory = (LideratisLibrary.isset(array["primaryCategory"]) ? array["primaryCategory"] : '');
+    var exploreAttributes = (LideratisLibrary.isset(array["exploreAttributes"]) ? array["exploreAttributes"] : '');
+    var extraFields = (LideratisLibrary.isset(array["extraFields"]) ? array["extraFields"] : '');
+    if (LideratisLibrary.isset(eventName) && LideratisLibrary.isset(eventAction)) {
+        LideratisdigitalData = {
+            'event': [{
+                'eventInfo': {
+                    'eventName': eventName,
+                    'eventAction': eventAction,
+                    'eventPoints': eventPoints
+                },
+                'category': {
+                    'primaryCategory': primaryCategory
+                },
+                'attributes': {
+                    'exploreAttributes': exploreAttributes,
+                    'extraFields': extraFields
+                }
+            }]
+        };
+        return LideratisdigitalData;
+    } else {
+        return "-1";
     }
-    /*********************************LIBRERIA**LIDERATIS.COM***************************************/
+}
+/*********************************LIBRERIA**LIDERATIS.COM***************************************/
