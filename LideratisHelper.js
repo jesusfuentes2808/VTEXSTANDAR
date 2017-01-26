@@ -254,3 +254,32 @@ LideratisHelper.URL = function(numero) {
             return "-1"
     }
 }
+/******************************************************************************************************************/
+//La funcion "LocationIndexVTEX", ubica el indice del atributo que queremos obtener, además de contener los datos necesarios parea el seguimiento
+//@dataLayer   : Envia un arreglo que contiene los datos de una pagina.
+//@textLayer   : Es el nombre del atributo del cual obtenemos el index.
+//@type        : Es el atributo del cual se va a obtener el index.
+/******************************************************************************************************************/
+LideratisHelper.LocationIndexVTEX = function(dataLayer,textLayer,type){
+    
+    var posicion = -1;
+    
+    dataLayer.forEach(function(elem,ind) {
+        var texto = "";
+    
+        if(type == 0){
+            texto = elem.pageCategory;    
+        }else if(type == 1){
+            texto = elem.event;    
+        }
+                
+        if (typeof(texto) != 'undefined' && texto != "") {
+            if (texto.toString() == textLayer) {
+                validaPosicion = true;
+                posicion = parseInt(ind);
+            }
+        }
+    });
+
+    return posicion;
+}
