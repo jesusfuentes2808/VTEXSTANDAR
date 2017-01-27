@@ -9,9 +9,10 @@ window.GLSEPARADOR = " | ";
 window.BUSCADORCRE = "Búsqueda con Resultados";
 window.BUSCADORSRE = "Búsqueda sin Resultados";
 window.INICIO      = "Portada";
+window.TITLE       = document.title.trim();
 
 /******************************************************************************************************************/
-// Validacin por SiteID
+// Validación por SiteID
 /******************************************************************************************************************/
      
 if(window.clientID=="WNF"){
