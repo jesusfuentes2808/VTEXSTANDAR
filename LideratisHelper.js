@@ -27,39 +27,40 @@ LideratisHelper.GetCutValue = function(cadena, caracter, posicion) {
 //@texto   : Cadena
 /******************************************************************************************************************/
 LideratisHelper.ClearQuotationMarks = function(texto) {
-        try {
-            var cadena = texto;
-            if (typeof(cadena) !== 'undefined') {
-                if (typeof(cadena) === 'string') {
-                    cadena = cadena.replace(/['"]+/g, '');
-                }
-            } else {
-                cadena = '';
+
+    try {
+        var cadena = texto;
+        if (typeof(cadena) !== 'undefined') {
+            if (typeof(cadena) === 'string') {
+                cadena = cadena.replace(/['"]+/g, '');
             }
-            return cadena;
-        } catch (error) {
-            console.log("MSG: " + error.message);
+        } else {
+            cadena = '';
         }
+        return cadena;
+    } catch (error) {
+        console.log("MSG: " + error.message);
     }
+}
 /******************************************************************************************************************/
 //La funcion "ClearBlankSpaces", se encarga de eliminar los espacios en blanco de una cadena.
 //@texto    : Cadena
 /******************************************************************************************************************/
 LideratisHelper.ClearBlankSpaces = function(texto) {
-        try {
-            var cadena = texto;
-            if (typeof(cadena) !== 'undefined') {
-                if (typeof(cadena) === 'string') {
-                    cadena = cadena.replace(/ +/g, ' ').trim();
-                }
-            } else {
-                cadena = '';
+    try {
+        var cadena = texto;
+        if (typeof(cadena) !== 'undefined') {
+            if (typeof(cadena) === 'string') {
+                cadena = cadena.replace(/ +/g, ' ').trim();
             }
-            return cadena;
-        } catch (error) {
-            console.log("MSG: " + error.message);
+        } else {
+            cadena = '';
         }
+        return cadena;
+    } catch (error) {
+        console.log("MSG: " + error.message);
     }
+}
 /******************************************************************************************************************/
 //La funcion "Price", se encarga de remplazar una parte de la cadena por una cadena deseada.
 //@valor       : Cadena Obtenida.
@@ -215,6 +216,18 @@ LideratisHelper.GetArrayAttributes = function(array) {
     return arrayAttr.join("-_-");
 };
 /******************************************************************************************************************/
+//La funcion "GetArrayExtraFields", Se encarga de Ordenar los ExtraFields con el caracter  "-_-", ademas de tomar el indice de la matriz.
+//@array      : Arreglo de atributos.
+/******************************************************************************************************************/
+LideratisHelper.GetArrayExtraFields = function(array) {
+    var indexSize = LideratisHelper.GetArrayIndexHigher(array);
+    arrayAttr = new Array();
+    for (var i = 1; i <= indexSize; i++) {
+        arrayAttr[i - 1] = (typeof array[i] !== "undefined") ? array[i] : "";
+    }
+    return arrayAttr.join("-_-");
+};
+/******************************************************************************************************************/
 //La funcion "GetArrayIndexHigher", Obtiene el elemento del arreglo con el indice mayor.
 //@array      : Arreglo de Atributos.
 /******************************************************************************************************************/
@@ -260,19 +273,19 @@ LideratisHelper.URL = function(numero) {
 //@textLayer   : Es el nombre del atributo del cual obtenemos el index.
 //@type        : Es el atributo del cual se va a obtener el index.
 /******************************************************************************************************************/
-LideratisHelper.LocationIndexVTEX = function(dataLayer,textLayer,type){
-    
+LideratisHelper.LocationIndexVTEX = function(dataLayer, textLayer, type) {
+
     var posicion = -1;
-    
-    dataLayer.forEach(function(elem,ind) {
+
+    dataLayer.forEach(function(elem, ind) {
         var texto = "";
-    
-        if(type == 0){
-            texto = elem.pageCategory;    
-        }else if(type == 1){
-            texto = elem.event;    
+
+        if (type == 0) {
+            texto = elem.pageCategory;
+        } else if (type == 1) {
+            texto = elem.event;
         }
-                
+
         if (typeof(texto) != 'undefined' && texto != "") {
             if (texto.toString() == textLayer) {
                 validaPosicion = true;

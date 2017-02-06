@@ -370,3 +370,123 @@ LideratisLibrary.ConversionEvent = function(array) {
     }
 }
 /*********************************LIBRERIA**LIDERATIS.COM***************************************/
+
+/*********************************LIBRERIA_JSON_LIDERATIS - PAGEVIEW ***************************************/
+LideratisLibrary.generateJSONPageView = function(vPageId, vPrimaryCategory, vOnsiteSearchTerm, vOnsiteSearchResults, vExploreAttributes, extraFields) {
+
+    dataPageView = new Array();
+
+    dataPageView['pageId'] = vPageId;
+    dataPageView['primaryCategory'] = vPrimaryCategory;
+    dataPageView['onsiteSearchTerm'] = vOnsiteSearchTerm;
+    dataPageView['onsiteSearchResults'] = vOnsiteSearchResults;
+    dataPageView['exploreAttributes'] = vExploreAttributes;
+    dataPageView['extraFields'] = vExtraFields;
+
+
+    return new LideratisLibrary.PageView(dataPageView);
+};
+
+/*********************************LIBRERIA_JSON_LIDERATIS - PRODUCTVIEW ***************************************/
+LideratisLibrary.generateJSONProductView = function(vProductID, vProductName, vPrimaryCategory, vExploreAttributes, vVirtualCategory) {
+
+    var dataProductView = new Array();
+
+    dataProductView['productID'] = vProductID;
+    dataProductView['productName'] = vProductName;
+    dataProductView['primaryCategory'] = vPrimaryCategory;
+    dataProductView['exploreAttributes'] = vExploreAttributes;
+    dataProductView['virtualCategory'] = vVirtualCategory;
+
+    return new LideratisLibrary.ProductView(dataProductView);
+};
+/*********************************LIBRERIA_JSON_LIDERATIS - SHOPACTION5 - CLICK ***************************************/
+LideratisLibrary.generateJSONShopAction5Click = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes) {
+
+    var dataShopAction5 = new Array();
+
+    dataShopAction5['productID'] = vProductID;
+    dataShopAction5['productName'] = vProductName;
+    dataShopAction5['quantity'] = vQuantity;
+    dataShopAction5['price'] = vPrice;
+    dataShopAction5['primaryCategory'] = vPrimaryCategory;
+    dataShopAction5['exploreAttributes'] = vExploreAttributes;
+
+    return new LideratisLibrary.ShopAction5_BtnClick(dataShopAction5);
+};
+
+/*********************************LIBRERIA_JSON_LIDERATIS - ELEMENT ************************************************/
+LideratisLibrary.generateJSONElement = function(vComponentID, vPrimaryCategory, vExploreAttributes) {
+
+    var dataElement = new Array();
+
+    dataElement['componentID'] = vComponentID;
+    dataElement['primaryCategory'] = vPrimaryCategory;
+    dataElement['exploreAttributes'] = vExploreAttributes;
+
+    return new LideratisLibrary.ElementTag(dataElement);
+};
+
+/****************************LIBRERIA_JSON_LIDERATIS - CONVERSION - EVENT *********************************************/
+LideratisLibrary.generateJSONConversionEvent = function(vEventName, vEventAction, vEventPoints, vPrimaryCategory, vExploreAttributes, vExtraFields) {
+    var dataConversion = new Array();
+
+    dataConversion['eventName'] = vEventName;
+    dataConversion['eventAction'] = vEventAction;
+    dataConversion['eventPoints'] = vEventPoints;
+    dataConversion['primaryCategory'] = vPrimaryCategory;
+    dataConversion['exploreAttributes'] = vExploreAttributes;
+    dataConversion['extraFields'] = vExtraFields;
+
+    return new LideratisLibrary.ConversionEvent(dataConversion);
+};
+
+/****************************LIBRERIA_JSON_LIDERATIS - ORDER TAG *********************************************/
+LideratisLibrary.generateJSONOrderTag = function(vTransactionID, vBasePrice, vShipping, vCity, vState_Province, vProfileID, vItem, vExploreAttributes, vExtraFields) {
+
+    var dataOrdenTag = new Array();
+
+    dataOrdenTag["transactionID"] = vTransactionID;
+    dataOrdenTag["basePrice"] = vBasePrice;
+    dataOrdenTag["shipping"] = vShipping;
+    dataOrdenTag["city"] = vCity;
+    dataOrdenTag["state_province"] = vState_Province;
+    dataOrdenTag["profileID"] = vProfileID;
+    dataOrdenTag["item"] = vItem;
+    dataOrdenTag['exploreAttributes'] = vExploreAttributes;
+    dataOrdenTag['extraFields'] = vExtraFields;
+
+    return new LideratisLibrary.OrdenTag(dataOrdenTag);
+};
+
+/**************************** LIBRERIA_JSON_LIDERATIS - REGISTRATION TAG *********************************************/
+LideratisLibrary.generateJSONRegistrationTag = function(vProfileID, vProfileEmail, vCity, vState_Province, vPostalcode, vCountry, vExploreAttributes) {
+
+    var dataRegistrationTag = new Array();
+
+    dataRegistrationTag['profileID'] = vProfileID;
+    dataRegistrationTag['profileEmail'] = vProfileEmail;
+    dataRegistrationTag['city'] = vCity;
+    dataRegistrationTag['state_province'] = vState_Province;
+    dataRegistrationTag['postalcode'] = vPostalcode;
+    dataRegistrationTag['country'] = vCountry;
+    dataRegistrationTag['exploreAttributes'] = vExploreAttributes
+
+    return new LideratisLibrary.RegistrationTag(dataRegistrationTag);
+
+}
+
+/**************************** LIBRERIA_JSON_LIDERATIS - SHOPACTION9 *********************************************/
+LideratisLibrary.generateJSONShopAction9 = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes) {
+
+    var dataShopAction9 = new Array();
+    dataShopAction9["productID"] = vProductID;
+    dataShopAction9["productName"] = vProductName;
+    dataShopAction9["quantity"] = vQuantity;
+    dataShopAction9["price"] = vPrice;
+    dataShopAction9["primaryCategory"] = vPrimaryCategory;
+    dataShopAction9["exploreAttributes"] = vExploreAttributes;
+
+    return new LideratisLibrary.ShopAction9Content(dataShopAction9);
+
+}
