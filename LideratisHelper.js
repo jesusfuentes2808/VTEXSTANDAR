@@ -208,6 +208,7 @@ LideratisHelper.AdicionarAtributos = function(attr) {};
 //@array      : Arreglo de atributos.
 /******************************************************************************************************************/
 LideratisHelper.GetArrayAttributes = function(array) {
+    if (!array)    return null;
     var indexSize = LideratisHelper.GetArrayIndexHigher(array);
     arrayAttr = new Array();
     for (var i = 1; i <= indexSize; i++) {
@@ -220,6 +221,7 @@ LideratisHelper.GetArrayAttributes = function(array) {
 //@array      : Arreglo de atributos.
 /******************************************************************************************************************/
 LideratisHelper.GetArrayExtraFields = function(array) {
+    if (!array)    return null;
     var indexSize = LideratisHelper.GetArrayIndexHigher(array);
     arrayAttr = new Array();
     for (var i = 1; i <= indexSize; i++) {
