@@ -372,7 +372,7 @@ LideratisLibrary.ConversionEvent = function(array) {
 /*********************************LIBRERIA**LIDERATIS.COM***************************************/
 
 /*********************************LIBRERIA_JSON_LIDERATIS - PAGEVIEW ***************************************/
-LideratisLibrary.generateJSONPageView = function(vPageId, vPrimaryCategory, vOnsiteSearchTerm, vOnsiteSearchResults, vExploreAttributes, extraFields) {
+LideratisLibrary.generateJSONPageView = function(vPageId, vPrimaryCategory, vOnsiteSearchTerm, vOnsiteSearchResults, vExploreAttributes, vExtraFields) {
 
     dataPageView = new Array();
 
@@ -401,7 +401,7 @@ LideratisLibrary.generateJSONProductView = function(vProductID, vProductName, vP
     return new LideratisLibrary.ProductView(dataProductView);
 };
 /*********************************LIBRERIA_JSON_LIDERATIS - SHOPACTION5 - CLICK ***************************************/
-LideratisLibrary.generateJSONShopAction5Click = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes) {
+LideratisLibrary.generateJSONShopAction5Click = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes, vExtraFields) {
 
     var dataShopAction5 = new Array();
 
@@ -411,6 +411,7 @@ LideratisLibrary.generateJSONShopAction5Click = function(vProductID, vProductNam
     dataShopAction5['price'] = vPrice;
     dataShopAction5['primaryCategory'] = vPrimaryCategory;
     dataShopAction5['exploreAttributes'] = vExploreAttributes;
+    dataShopAction5['extraFields'] = vExtraFields;
 
     return new LideratisLibrary.ShopAction5_BtnClick(dataShopAction5);
 };
@@ -424,7 +425,7 @@ LideratisLibrary.generateJSONElement = function(vComponentID, vPrimaryCategory, 
     dataElement['primaryCategory'] = vPrimaryCategory;
     dataElement['exploreAttributes'] = vExploreAttributes;
 
-    return new LideratisLibrary.ElementTag(dataElement);
+    return new LideratisLibrary.Element(dataElement);
 };
 
 /****************************LIBRERIA_JSON_LIDERATIS - CONVERSION - EVENT *********************************************/
@@ -456,7 +457,7 @@ LideratisLibrary.generateJSONOrderTag = function(vTransactionID, vBasePrice, vSh
     dataOrdenTag['exploreAttributes'] = vExploreAttributes;
     dataOrdenTag['extraFields'] = vExtraFields;
 
-    return new LideratisLibrary.OrdenTag(dataOrdenTag);
+    return new LideratisLibrary.Order(dataOrdenTag);
 };
 
 /**************************** LIBRERIA_JSON_LIDERATIS - REGISTRATION TAG *********************************************/
@@ -472,12 +473,12 @@ LideratisLibrary.generateJSONRegistrationTag = function(vProfileID, vProfileEmai
     dataRegistrationTag['country'] = vCountry;
     dataRegistrationTag['exploreAttributes'] = vExploreAttributes
 
-    return new LideratisLibrary.RegistrationTag(dataRegistrationTag);
+    return new LideratisLibrary.Registration(dataRegistrationTag);
 
 }
 
 /**************************** LIBRERIA_JSON_LIDERATIS - SHOPACTION9 *********************************************/
-LideratisLibrary.generateJSONShopAction9 = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes) {
+LideratisLibrary.generateJSONShopAction9 = function(vProductID, vProductName, vQuantity, vPrice, vPrimaryCategory, vExploreAttributes, vExtraFields) {
 
     var dataShopAction9 = new Array();
     dataShopAction9["productID"] = vProductID;
@@ -486,6 +487,7 @@ LideratisLibrary.generateJSONShopAction9 = function(vProductID, vProductName, vQ
     dataShopAction9["price"] = vPrice;
     dataShopAction9["primaryCategory"] = vPrimaryCategory;
     dataShopAction9["exploreAttributes"] = vExploreAttributes;
+    dataShopAction9['extraFields'] = vExtraFields;
 
     return new LideratisLibrary.ShopAction9Content(dataShopAction9);
 
